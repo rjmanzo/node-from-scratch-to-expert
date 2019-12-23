@@ -1,6 +1,9 @@
  const express = require('express');
  var app = express();
 
+ //define env. variables
+ const port = process.env.PORT || 3000;
+
  var hbs = require('hbs');
  //load helpers
  require('./hbs/helpers');
@@ -10,6 +13,7 @@
 
  //load partials
  hbs.registerPartials(__dirname + '/views/partials');
+
 
 
  //set Handlebars engine
@@ -35,6 +39,6 @@
      });
  })
 
- app.listen(3000, () => {
-     console.log("Escuchando en el puerto 3000");
+ app.listen(port, () => {
+     console.log(`Escuchando en el puerto ${port}`);
  });
